@@ -1,0 +1,26 @@
+.day-night{
+    position: absolute;
+    font-size: 24px;
+    padding: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: .3s ease;
+}
+.day-night i{
+    padding: 15px;
+    border-radius: 50%;
+    background: #ddd;
+}
+
+#night{
+    top: 50%;
+    right: 0;
+    color: #0077ff;
+    background: #0077ff;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+main.night #night{
+    background: #0077ff;
+    display: none;
+} 

@@ -9,21 +9,10 @@ const calcDelete = document.querySelector('.delete');
 const calcIcon = document.querySelector('#calc__icon');
 const night = document.querySelector('#night');
 
-let sound1 = new Audio("audio/sound1.mp3");
-let sound2 = new Audio("audio/sound2.mp3");
-let sound3 = new Audio("audio/sound3.mp3");
-
 for (let i = 0; i < calcNumber.length; i++) {
     calcNumber[i].addEventListener('click', function(){
         calcInput.value += calcNumber[i].innerHTML;
-        playSound(sound1, "audio/sound1.mp3");
     });
-}
-
-function playSound(sound, path) {
-    sound.pause();
-    sound = new Audio(path);
-    sound.play();
 }
 
 function calculatorEqual(){
@@ -43,22 +32,15 @@ document.addEventListener('keydown', function(w){
 });
 calcEqual.addEventListener('click', function(){
     calculatorEqual();
-    playSound(sound3, "audio/sound3.mp3");
 });
 backspace.addEventListener('click', function(){
     calcInput.value = calcInput.value.slice(0, -1);
-    playSound(sound2, "audio/sound2.mp3");
-});
-calcDelete.addEventListener('click', function(){
-    calcInput.value = "";
-    playSound(sound2, "audio/sound2.mp3");
 });
 
-night.addEventListener('click', function(){
-    main.classList.add('night');
-    main.classList.remove('day');
-    day.style.transform = 'rotate(360deg)'
-})
+calcDelete.addEventListener('click', function(){
+    calcInput.value = "";
+});
+
 var mousePosition,
     offset = [0,0],
     isDown = false;
@@ -93,15 +75,12 @@ document.addEventListener('mousemove', function(event) {
 document.addEventListener("keydown", function(event) {
     if (event.keyCode == 13 || event.keyCode == 187) {
         calculatorEqual();
-        playSound(sound3, "audio/sound3.mp3");
     }
     if (event.keyCode == 46) {
         calcInput.value = "";
-        playSound(sound2, "audio/sound2.mp3");
     }
     if (event.keyCode == 8) {
         calcInput.value = calcInput.value.slice(0, -1);
-        playSound(sound2, "audio/sound2.mp3");
     }
     if (event.keyCode == 107) {
         calcInput.value += '+';
